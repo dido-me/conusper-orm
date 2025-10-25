@@ -27,10 +27,6 @@ export default function Layout() {
       path: "/private/dashboard",
     },
     { icon: "💰", label: "Finanzas", path: "/private/finance" },
-    { icon: "📊", label: "Reportes", path: "/reportes" },
-    { icon: "🎯", label: "Metas", path: "/metas" },
-    { icon: "🏷️", label: "Categorías", path: "/categorias" },
-    { icon: "⚙️", label: "Configuración", path: "/configuracion" },
   ];
 
   return (

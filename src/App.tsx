@@ -1,10 +1,6 @@
-import { Routes, Route } from 'react-router';
 import { useEffect } from 'react';
-import { useAuthStore } from './stores/authStore';
-import ProtectedRoute from './components/ProtectedRoute';
-import Login from './components/Login';
-import Dashboard from './components/Dashboard';
-import RedirectHandler from './components/RedirectHandler';
+import { useAuthStore } from '@app/modules/auth/stores/authStore';
+import AppRoutes from '@app/modules/general/routes/AppRoutes';
 
 function App() {
   const { initialized, initialize } = useAuthStore();
@@ -26,28 +22,7 @@ function App() {
     );
   }
 
-  return (
-    <Routes>
-      {/* Ruta pública para login */}
-      <Route path="/login" element={<Login />} />
-      
-      {/* Rutas protegidas */}
-      <Route 
-        path="/dashboard" 
-        element={
-          <ProtectedRoute>
-            <Dashboard />
-          </ProtectedRoute>
-        } 
-      />
-      
-      {/* Ruta por defecto - index route */}
-      <Route index element={<RedirectHandler />} />
-      
-      {/* Ruta catch-all para URLs no encontradas */}
-      <Route path="*" element={<RedirectHandler />} />
-    </Routes>
-  );
+  return <AppRoutes />;
 }
 
 export default App;

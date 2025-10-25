@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import { useAuthStore } from '../stores/authStore';
+import { useAuthStore } from '@app/modules/auth/stores/authStore';
 
 export default function RedirectHandler() {
   const { user, initialized } = useAuthStore();
@@ -9,7 +9,7 @@ export default function RedirectHandler() {
   useEffect(() => {
     if (initialized) {
       if (user) {
-        navigate('/dashboard');
+        navigate('/private/dashboard');
       } else {
         navigate('/login');
       }

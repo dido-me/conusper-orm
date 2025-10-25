@@ -18,4 +18,17 @@ export default defineConfig({
       '@app': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          router: ['react-router'],
+          supabase: ['@supabase/supabase-js'],
+        },
+      },
+    },
+  },
 })

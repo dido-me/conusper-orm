@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "prebuild": "echo 'Checking environment variables...' && node -e \"if (!process.env.VITE_SUPABASE_URL || !process.env.VITE_SUPABASE_PUBLISHABLE_KEY) { console.error('Missing required environment variables'); process.exit(1); }\"",
     "lint": "eslint .",
     "preview": "vite preview"
   },
